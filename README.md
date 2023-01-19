@@ -1,0 +1,6 @@
+# PG2_Base
+
+This is the base project developed in our first lab session. It is a simple 3D platformer game where you have a player and enemies which will be added in our future sessions.
+
+All 3D models were created by Quarternius
+https://quaternius.com/
