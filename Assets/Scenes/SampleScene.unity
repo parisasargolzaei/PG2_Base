@@ -196,8 +196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jump: 5
   walkSpeed: 5
-  playerCamera: {fileID: 0}
-  playerAnimator: {fileID: 0}
+  playerCamera: {fileID: 963194227}
 --- !u!1001 &332611935
 PrefabInstance:
   m_ObjectHideFlags: 0
