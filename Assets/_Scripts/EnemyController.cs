@@ -69,12 +69,28 @@ public class EnemyController : MonoBehaviour
 
     private void Chase()
     {
-        
+        agent.SetDestination(player.position);
     }
 
     private void Attack()
     {
-        
+        agent.SetDestination(transform.position);
+
+        transform.LookAt(player);
+
+        if(!alreadyAttacked)
+        {
+            Rigidbody bulletRb = Instantiate(projectile, projectilePos.transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+            bulletRb.AddForce(transform.forward * 32f, ForceMode.Impulse);
+
+            alreadyAttacked = true;
+            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+        }
+    }
+
+    private void ResetAttack()
+    {
+        alreadyAttacked = false;
     }
     
     private void OnDrawGizmosSelected() {
