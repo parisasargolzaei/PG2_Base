@@ -368,7 +368,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &306667458
+--- !u!114 &306667456
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -377,10 +377,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 306667453}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1d8517ba0e552e48914bfb053c8a723, type: 3}
+  m_Script: {fileID: 11500000, guid: d718e4ae900e43c43b825d11dcb517ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 1
 --- !u!1001 &332611935
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -964,6 +963,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1133778408}
   - component: {fileID: 1133778407}
+  - component: {fileID: 1133778409}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -998,6 +998,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1133778409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133778406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 863276d8b01d01f43803250f741d911d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
 --- !u!1 &1196287385
 GameObject:
   m_ObjectHideFlags: 0
