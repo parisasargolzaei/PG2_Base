@@ -5,4 +5,4 @@ The save and load system for the game was done partially. So far, data can be wr
 **All changes were done in EasyLevel Scene**  
   
 **You can find the stored JSON file in the following path (Windows OS):**  
-C:\Users\{yourusername}\AppData\LocalLow\DefaultCompany\{yourprojectname}
+C:\Users\\{yourusername}\AppData\LocalLow\DefaultCompany\\{yourprojectname}
