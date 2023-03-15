@@ -44,7 +44,7 @@ public class EnemyController : MonoBehaviour
     {
         if(!walkpointSet) SearchWalkPoint();
 
-        Debug.Log(walkpointSet);
+        // Debug.Log(walkpointSet);
         if(walkpointSet)
             agent.SetDestination(walkPoint);
 
