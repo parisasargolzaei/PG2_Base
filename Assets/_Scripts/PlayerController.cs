@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IDataPersistance
 {
     PlayerAction inputAction;
     Vector2 move;
@@ -98,5 +98,16 @@ public class PlayerController : MonoBehaviour
     private void OnDrawGizmos() {
         Gizmos.color = Color.red;
         Gizmos.DrawRay(transform.position, -Vector3.up * distanceToGround);
+    }
+
+    // Game data
+    public void SaveData(ref GameData data)
+    {
+        data.playerPosition = transform.position;
+    }
+
+    public void LoadData(GameData data)
+    {
+        transform.position = data.playerPosition;
     }
 }

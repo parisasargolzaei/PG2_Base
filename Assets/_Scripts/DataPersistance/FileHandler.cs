@@ -9,10 +9,17 @@ public class FileHandler
     private string dataDirPath = "";
     private string dataFileName = "";
 
-    public FileHandler(string dataDirPath, string dataFileName)
+    // Encryption
+    private bool useEncryption = false;
+    private readonly string encryptionCode = "word";
+
+    public FileHandler(string dataDirPath, string dataFileName, bool useEncryption)
     {
         this.dataDirPath = dataDirPath;
         this.dataFileName = dataFileName;
+        
+        // Encryption
+        this.useEncryption = useEncryption;
     }
 
     public GameData Load()
@@ -31,6 +38,12 @@ public class FileHandler
                     {
                         dataToLoad = reader.ReadToEnd();
                     }
+                }
+
+                // Optionally decrypt the data
+                if(useEncryption)
+                {
+                    dataToLoad = EncryptDecrypt(dataToLoad);
                 }
 
                 loadedData = JsonUtility.FromJson<GameData>(dataToLoad);
@@ -58,6 +71,12 @@ public class FileHandler
             // Serialize the C# game data object into JSON
             string dataToStore = JsonUtility.ToJson(data, true);
 
+            // Optionally encrypt the data
+            if(useEncryption)
+            {
+                dataToStore = EncryptDecrypt(dataToStore);
+            }
+
             using(FileStream stream = new FileStream(fullPath, FileMode.Create))
             {
                 using(StreamWriter writer = new StreamWriter(stream))
@@ -70,5 +89,16 @@ public class FileHandler
         {
             Debug.LogError("Error occured when trying to save data to file: " + fullPath + "\n" + e);
         }
+    }
+
+    // Encryption
+    private string EncryptDecrypt(string data)
+    {
+        string modifiedData = "";
+        for(int i=0; i < data.Length; i++)
+        {
+            modifiedData += (char) (data[i] ^ encryptionCode[i % encryptionCode.Length]);
+        }
+        return modifiedData;
     }
 }
