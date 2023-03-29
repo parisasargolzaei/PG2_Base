@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-    Collectable coin;
+    // Collectable coin;
 
     private void Awake() {
-        coin = new Collectable("coin", 1, 0);
+        // coin = new Collectable("coin", 1, 0);
     }
 
     private void OnCollisionEnter(Collision other) {
         if(other.gameObject.tag == "Player")
         {
-            coin.UpdateScore();
+            // coin.UpdateScore();
+            Inventory.inventory.nonConsumableItemsController.UseItem("Coin");
             Destroy(gameObject);
         }
     }
